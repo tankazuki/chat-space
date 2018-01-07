@@ -28,8 +28,6 @@ html, body{
       	line-height: 100px;
       }
     }
-
-
     &__user-name{
      color: #FFFFFF;
      font-size: 16px;
@@ -38,6 +36,42 @@ html, body{
      position: relative;
      display: inline-block;
     }
+
+
+    &__groups{
+    	background-color: #2f3e51;
+    	height: 85%;
+    	width: 100%;
+    }
+    &__groups-list{
+    	height: 100%;
+    	padding: 20px 40px;
+
+      &__name{
+     	color: #FFFFFF;
+     	font-size: 15px;
+      }	
+      &__message{
+     	color: #FFFFFF;
+     	font-size: 11px;
+     	padding-top: 5px;
+     	padding-bottom: 40px;
+      }
+     }
+
+
+
+    	
+
+
+
+    
+   
+   
+
+    
+
+
 
 
 
