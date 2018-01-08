@@ -92,8 +92,34 @@ html, body{
         }
   	   }
    	  }
+    &__body{
+      background-color: #AAAAAA;
+      height: calc( 85% - 90px );
+      padding-top: 46px;
+        padding-left: 40px;
+        padding-right: 40px;
+          &__message-name{
+            color: #434A54;
+            font-size: 16px;
+            font-weight: bold;
+            margin-right: 10px;
+            float: left;
+          }
+          &__message-date{
+            color: #999999;
+            font-size: 12px;
+            float: left;
+            padding-bottom: 10px;
+          }
+          &__message-body{
+            color: #434A54;
+            font-size: 14px;
+            clear: both;
+            padding-bottom: 40px;
+          }
+      }
+    
 
-      
    }  
 
    
