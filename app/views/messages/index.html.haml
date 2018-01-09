@@ -7,11 +7,11 @@
    .i.fa.fa-cog
 
  .chat-side__groups
-  .chat-side__groups-list
-   .chat-side__groups-list__name グループ1
-   .chat-side__groups-list__message まだメッセージはありません
-   .chat-side__groups-list__name グループ2
-   .chat-side__groups-list__message まだメッセージはありません
+  %ul.chat-side__groups-list
+   %li.chat-side__groups-list__name グループ1
+   %li.chat-side__groups-list__message まだメッセージはありません
+   %li.chat-side__groups-list__name グループ2
+   %li.chat-side__groups-list__message まだメッセージはありません
 
 .chat-main
  .chat-main__header
@@ -19,10 +19,16 @@
   .chat-main__header__group
    .chat-main__header__group__name グループ1
    .chat-main__header__group__members MEMBER user_name
- .chat-main__body
-  .chat-main__body__message-name user_name
-  .chat-main__body__message-date 2017/1/8 20:35:17
-  .chat-main__body__message-body こんにちは
-  .chat-main__body__message-name user_name2
-  .chat-main__body__message-date 2017/1/8 20:37:17
-  .chat-main__body__message-body こんにちは
+ %ul.chat-main__body
+  %li.chat-main__body__message-name user_name
+  %li.chat-main__body__message-date 2017/1/8 20:35:17
+  %li.chat-main__body__message-body こんにちは
+  %li.chat-main__body__message-name user_name2
+  %li.chat-main__body__message-date 2017/1/8 20:37:17
+  %li.chat-main__body__message-body こんにちは
+ .chat-main__footer
+  .chat-main__footer__form
+   .chat-main__footer__form__form--send--btn Send
+   .chat-main__footer__form__picture
+    .i.fa.fa-picture-o 
+   %input.chat-main__footer__form__input-form{ type: "text", placeholder:"type a message"}
