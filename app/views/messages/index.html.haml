@@ -3,7 +3,7 @@
   .chat-side__user__name 
    = current_user.name
   .chat-side__user__new-group
-   = link_to  do
+   = link_to new_groups_path do
     =fa_icon "pencil-square-o", class: "icon"
   .chat-side__user__edit-user
    = link_to edit_user_path do
