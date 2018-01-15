@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
 	    redirect_to root_path, notice: "グループの編集が完了しました"
 	 else
         flash.now[:alert] = "グループの編集に失敗しました"
-	    render :edit
+        render :edit
 	 end
 	end    	
 
