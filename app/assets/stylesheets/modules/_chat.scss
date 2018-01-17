@@ -39,7 +39,7 @@ html, body{
     	width: 100%;
     }
     &__groups-list{
-    	height: 100%;
+    	min-height: 100%;
     	padding: 20px 40px;
       &__name{
      	color: $white;
@@ -81,8 +81,8 @@ html, body{
    	  		color: #333333;
    	  	}
         &__members{
-          font-size: 12px;
-          color: $gray;           
+          font-size: 14px;
+          color: $gray;    
         }
   	  }
    	}
@@ -114,33 +114,36 @@ html, body{
     &__footer{
         background-color: #AAAAAA;
         height: 90px;
+        width: 100%;   
         &__form{
-          padding: 20px 40px;
-           &__form--send--btn{
-             font-size: 15px;
-             padding: 12.5px 20px;
-             margin-left: 15px;
-             margin-right: 10px;
-             color: $white;
-             background-color: $pale-blue;
-             text-align: center;
-             float: right;
+          padding: 20px 40px;}
+        .send--btn{
+           font-size: 15px;
+           padding: 12.5px 20px;
+           margin-left: 15px;
+           margin-right: 10px;
+           color: $white;
+           background-color: $pale-blue;
+           text-align: center;
+           float: right;
            }
-           &__input-form{
-             float: left;
-             line-height: 50px;
-             border-style: none;
-             width: 730px;
-             padding: 0 10px;
+        .input-form{
+           float: left;
+           line-height: 50px;
+           border-style: none;
+           width: 720px;
+           padding: 0 10px;
            }
-           &__picture{
-             background-color: $white;
-             line-height: 50px;
-             margin-right: 10px;
-             padding: 0 10px; 
-             float: right;
+
+        .fa{
+           background-color: $white;
+           line-height: 50px;
+           margin-right: 10px;
+           padding: 0 10px; 
            }
-        }
+        .hidden{
+          display: none;
+        } 
     }
    }  
 
