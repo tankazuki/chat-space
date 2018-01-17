@@ -2,23 +2,37 @@
 .chat-main
  .chat-main__header
   .chat-main__header__group--edit--btn 
-   = link_to "Edit", edit_group_path()
+   = link_to "Edit", edit_group_path(@groups)
   .chat-main__header__group
    .chat-main__header__group__name
-    = @group.name 
+    = @groups.name 
    .chat-main__header__group__members
+    MEMBERS:
+    -@groups.users.each do |members|  
+     =members.name
+ 
+ .chat-main__body
+  -@messages.each do |message| 
+   .chat-main__body__message-name
+    %p
+     = message.user.name
+   .chat-main__body__message-date
+    %p
+     = message.created_at.to_s(:default)
+   .chat-main__body__message-body
+    %p
+     = message.body
+    %p 
+     = image_tag message.image.url, class: 'body__message-image' if message.image.present? 
 
- %ul.chat-main__body
-  %li.chat-main__body__message-name user_name
-  %li.chat-main__body__message-date 2017/1/8 20:35:17
-  %li.chat-main__body__message-body こんにちは
-  %li.chat-main__body__message-name user_name2
-  %li.chat-main__body__message-date 2017/1/8 20:37:17
-  %li.chat-main__body__message-body こんにちは
-  
  .chat-main__footer
   .chat-main__footer__form
-   .chat-main__footer__form__form--send--btn Send
-   .chat-main__footer__form__picture
-    .i.fa.fa-picture-o 
-   %input.chat-main__footer__form__input-form{ type: "text", placeholder:"type a message"}
+   = form_for [@groups, @message] do |f|
+    = f.text_field :body, class: 'input-form', placeholder: 'type a message'
+    = f.label :image, class: 'picture' do
+     = fa_icon 'picture-o', class: 'icon'
+     = f.file_field :image, class: 'hidden'
+    = f.submit 'Send', class: 'send--btn'
+    
+  
+ 
