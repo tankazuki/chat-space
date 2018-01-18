@@ -5,15 +5,15 @@ class GroupsController < ApplicationController
 	end	
 
 	def new
-		@group = Group.new
-		@users = User.where.not(id: current_user.id)
+	    @group = Group.new
+        @users = User.where.not(id: current_user.id)
 	end
 	
 	def create
-		@group = Group.new(group_params)
+        @group = Group.new(group_params)
 		@group.users << current_user
 	 if @group.save
-        redirect_to root_path, notice: "グループの作成が完了しました"
+    	redirect_to root_path, notice: "グループの作成が完了しました"
 	 else
 	    flash.now[:alert] = "グループの作成に失敗しました"
 	    render :new
@@ -21,7 +21,7 @@ class GroupsController < ApplicationController
 	end	
 
 	def edit
-		@users = User.where.not(id: current_user.id)
+	    @users = User.where.not(id: current_user.id)
 	end	
 
 	def update
@@ -29,8 +29,8 @@ class GroupsController < ApplicationController
 	 	@group.users << current_user
 	    redirect_to root_path, notice: "グループの編集が完了しました"
 	 else
-        flash.now[:alert] = "グループの編集に失敗しました"
-        render :edit
+   		flash.now[:alert] = "グループの編集に失敗しました"
+    	render :edit
 	 end
 	end    	
 
