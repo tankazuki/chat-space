@@ -8,8 +8,8 @@
     = @group.name 
    .chat-main__header__group__members
     MEMBERS:
-    -@group.users.each do |members|  
-     =members.name
+    -@group.users.each do |member|  
+     =member.name
  
  .chat-main__body
   -@messages.each do |message| 
