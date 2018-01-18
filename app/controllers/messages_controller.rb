@@ -16,6 +16,10 @@ class MessagesController < ApplicationController
     end   
   end
 
+  def display_date
+    message.created_at.to_s(:default)
+  end 
+
   private
   def message_params
     params.require(:message).permit(:body, :image).merge(user_id: current_user.id)  

@@ -18,7 +18,7 @@
      = message.user.name
    .chat-main__body__message-date
     %p
-     = message.created_at.to_s(:default)
+     = message.display_date(message)
    .chat-main__body__message-body
     %p
      = message.body
