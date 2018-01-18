@@ -114,7 +114,8 @@ html, body{
     &__footer{
         background-color: #AAAAAA;
         height: 90px;
-        width: 100%;   
+        width: 100%;
+        position: fixed;   
         &__form{
           padding: 20px 40px;}
         .send--btn{
@@ -125,13 +126,12 @@ html, body{
            color: $white;
            background-color: $pale-blue;
            text-align: center;
-           float: right;
            }
         .input-form{
            float: left;
            line-height: 50px;
            border-style: none;
-           width: 720px;
+           width: 690px;
            padding: 0 10px;
            }
 
