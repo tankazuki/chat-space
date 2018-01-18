@@ -2,13 +2,13 @@
 .chat-main
  .chat-main__header
   .chat-main__header__group--edit--btn 
-   = link_to "Edit", edit_group_path(@groups)
+   = link_to "Edit", edit_group_path(@group)
   .chat-main__header__group
    .chat-main__header__group__name
-    = @groups.name 
+    = @group.name 
    .chat-main__header__group__members
     MEMBERS:
-    -@groups.users.each do |members|  
+    -@group.users.each do |members|  
      =members.name
  
  .chat-main__body
@@ -27,7 +27,7 @@
 
  .chat-main__footer
   .chat-main__footer__form
-   = form_for [@groups, @message] do |f|
+   = form_for [@group, @message] do |f|
     = f.text_field :body, class: 'input-form', placeholder: 'type a message'
     = f.label :image, class: 'picture' do
      = fa_icon 'picture-o', class: 'icon'
