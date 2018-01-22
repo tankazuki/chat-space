@@ -15,12 +15,10 @@ $(function(){
                   ${ post_image }
                  </div>
                </div>`
-               console.log(html);
     return html;
   }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
-    console.log(this)
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
@@ -34,7 +32,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.chat-main__body').append(html);
-     $('.chat-main__body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, "fast");
+      $('.chat-main__body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, "fast");
       $('.input-form').val('');
       $('.send--btn').removeAttr("disabled");
     })
