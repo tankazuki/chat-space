@@ -55,7 +55,6 @@ $(function() {
       $(this).parent().remove();
     var user_name = $(this).data("userName")
     var user_id = $(this).data("userId")
-    console.table(user_name)
     appendAdd(user_name, user_id);
 
   });
