@@ -10,7 +10,6 @@
     MEMBERS:
     -@group.users.each do |member|  
      =member.name
- 
  .chat-main__body
   -@messages.each do |message|
    .chat-main__body__message{ "data-message-id": "#{message.id}"} 
@@ -25,7 +24,6 @@
       = message.body
      %p 
       = image_tag message.image.url, class: 'body__message-image' if message.image.present? 
-
  .chat-main__footer
   .chat-main__footer__form
    = form_for [@group, @message] do |f|

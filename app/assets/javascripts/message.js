@@ -6,18 +6,16 @@ $(function(){
       post_image = `<img src="${ message.image }">`;
     }
     var html = ` <div class = "chat-main__body__message "data-message-id = "${message.id}">
-                 <div class = "chat-main__body__message-name">
-                  ${message.name}
-                 </div>
-                 <div class = "chat-main__body__message-date">
-                  ${message.date}
-                 </div>
-                 <div class = "chat-main__body__message-body">
-                  <p>${message.body}</p>
-                  ${ post_image }
-                 </div>
-                 </div>
-                 </div>
+                  <div class = "chat-main__body__message-name">
+                   ${message.name}
+                  </div>
+                  <div class = "chat-main__body__message-date">
+                   ${message.date}
+                  </div>
+                  <div class = "chat-main__body__message-body">
+                   <p>${message.body}</p>
+                   ${ post_image }
+                  </div>
                  </div>`
     return html;
            }
@@ -34,18 +32,16 @@ $(function(){
         json.messages.forEach(function(message) {
           if (message.id > id ) {
              insertHTML += buildHTML(message);
-        
           } 
-          
         });
         $('.chat-main__body').append(insertHTML);
       })
       .fail(function(json) {
           alert('自動更新に失敗しました');
       });
-      }else {
+      } else {
         clearInterval(interval);
-       }
+      }
      },5000 );
 
   $('#new_message').on('submit', function(e){
