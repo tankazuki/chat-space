@@ -21,19 +21,15 @@ $(function(){
                  </div>`
     return html;
            }
-        // });
    var interval = setInterval(function() {
     if (window.location.href.match("\/groups\/.\/messages")) {
     $.ajax({
       url: location.href,
       type: "GET",
       dataType: 'json'
-      // processData: false,
-      // contentType: false
     })
     .done(function(json) {
       var id = $('.chat-main__body__message').last().data('messageId');
-      console.log(id)
         var insertHTML = '';
         json.messages.forEach(function(message) {
           if (message.id > id ) {
