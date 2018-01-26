@@ -1,22 +1,50 @@
-$(function(){
+$(function(){ 
+  
 　function buildHTML(message){
     var post_image = "";
     if (message.image) {
       post_image = `<img src="${ message.image }">`;
     }
-    var html = ` <div class = "chat-main__body__message-name">
-                  ${message.name}
-                 </div>
-                 <div class = "chat-main__body__message-date">
-                  ${message.date}
-                 </div>
-                 <div class = "chat-main__body__message-body">
-                  <p>${message.body}</p>
-                  ${ post_image }
-                 </div>
-               </div>`
+    var html = ` <div class = "chat-main__body__message "data-message-id = "${message.id}">
+                  <div class = "chat-main__body__message-name">
+                   ${message.name}
+                  </div>
+                  <div class = "chat-main__body__message-date">
+                   ${message.date}
+                  </div>
+                  <div class = "chat-main__body__message-body">
+                   <p>${message.body}</p>
+                   ${ post_image }
+                  </div>
+                 </div>`
     return html;
-  }
+           }
+   var interval = setInterval(function() {
+    if (window.location.href.match("\/groups\/.\/messages")) {
+    var id = $('.chat-main__body__message').last().data('messageId');
+    $.ajax({
+      url: location.href,
+      type: "GET",
+      data: {id: id},
+      dataType: 'json'
+    })
+    .done(function(data) {
+        var insertHTML = '';
+        data.forEach(function(message) {
+          if (message.id > id ) {
+             insertHTML += buildHTML(message);
+          } 
+        });
+        $('.chat-main__body').append(insertHTML);
+      })
+      .fail(function(json) {
+          alert('自動更新に失敗しました');
+      });
+      } else {
+        clearInterval(interval);
+      }
+     },1000 );
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -40,5 +68,5 @@ $(function(){
     　alert('error');
      $('.send--btn').removeAttr("disabled");
     })
-  })
-})
+  });
+});

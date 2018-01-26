@@ -1,4 +1,4 @@
-= render "layouts/side"
+= render "layouts/side" 
 .chat-main
  .chat-main__header
   .chat-main__header__group--edit--btn 
@@ -10,21 +10,20 @@
     MEMBERS:
     -@group.users.each do |member|  
      =member.name
- 
  .chat-main__body
-  -@messages.each do |message| 
-   .chat-main__body__message-name
-    %p
-     = message.user.name
-   .chat-main__body__message-date
-    %p
-     = message.display_date(message)
-   .chat-main__body__message-body
-    %p
-     = message.body
-    %p 
-     = image_tag message.image.url, class: 'body__message-image' if message.image.present? 
-
+  -@messages.each do |message|
+   .chat-main__body__message{ "data-message-id": "#{message.id}"} 
+    .chat-main__body__message-name
+     %p
+      = message.user.name
+    .chat-main__body__message-date
+     %p
+      = message.display_date(message)
+    .chat-main__body__message-body
+     %p
+      = message.body
+     %p 
+      = image_tag message.image.url, class: 'body__message-image' if message.image.present? 
  .chat-main__footer
   .chat-main__footer__form
    = form_for [@group, @message] do |f|
