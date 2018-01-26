@@ -21,15 +21,16 @@ $(function(){
            }
    var interval = setInterval(function() {
     if (window.location.href.match("\/groups\/.\/messages")) {
+    var id = $('.chat-main__body__message').last().data('messageId');
     $.ajax({
       url: location.href,
       type: "GET",
+      data: {id: id},
       dataType: 'json'
     })
-    .done(function(json) {
-      var id = $('.chat-main__body__message').last().data('messageId');
+    .done(function(data) {
         var insertHTML = '';
-        json.messages.forEach(function(message) {
+        data.forEach(function(message) {
           if (message.id > id ) {
              insertHTML += buildHTML(message);
           } 
@@ -42,7 +43,7 @@ $(function(){
       } else {
         clearInterval(interval);
       }
-     },5000 );
+     },1000 );
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
